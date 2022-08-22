@@ -1,0 +1,68 @@
+·<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  function reduceData(a, b) {
+        //         let arr = [];
+
+        //         for (let i = a; i <= b; i++) {
+        //           arr.push(i);
+        //         } // console.log(arr);   // 得到1-100的数组
+        //         return arr.reduce((prev, item) => {
+        //           // 这里的return是返回给调用reduceData()函数的
+        //           return prev + item; // 箭头函数写return一定要加{}，这里的return是返回给调用reduce方法的
+        //         });
+        //       } 
+        //       //传参两个参，表示这个函数求这两个参数之间的和
+        //       console.log(reduceData(1, 100));
+        function reduceData(a, b) {
+            let arr = []
+            for (let i = a; i <= b; i++) {
+                arr.push(i)
+            }
+            return arr.reduce((prev, item)=>{
+                return prev+ item
+            })
+        }
+       console.log( reduceData(1,100));
+
+         // console.log(reduceData(1, 100).reduce((prev, item) => prev + item, 0));
+    </script>
+    <script>
+
+
+
+// let url = sum.substr(22,28)
+// // console.log(url);
+// let url1 = url.split('&')
+// console.log(url1);
+        
+
+
+        function process(url) {
+         let sum = url.substr(22,28)
+        //  console.log(sum);
+        let arr = sum.split('&')
+        // console.log(arr);
+        return arr.reduce((acc,item)=>{
+             const itemArr = item.split('=')
+             acc[itemArr[0]] = itemArr[1]
+             return acc
+        },{})
+        }
+       console.log( process('http://www.baidu.com/?name=zhangsan&age=18&sex=nan#'));
+
+// process(http://www.baidu.com/?name=zhangsan&age=18&sex=nan) 
+// 输出:  { name:"zhangsan",age:18,sex:nan }
+    </script>
+</body>
+
+</html>
